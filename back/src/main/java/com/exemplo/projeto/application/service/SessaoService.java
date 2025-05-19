@@ -30,7 +30,7 @@ public class SessaoService implements SessaoUseCase {
                 ? inicio.plusMinutes(duracaoEmMinutos)
                 : inicio.plusMinutes(1);
 
-        Sessao sessao = new Sessao(inicio, fim);
+        Sessao sessao = new Sessao(inicio, fim, idPauta);
         pauta.setSessao(sessao);
         pautaRepo.save(pauta);
         sessaoRepo.save(sessao);

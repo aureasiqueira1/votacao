@@ -1,7 +1,6 @@
 package com.exemplo.projeto.adapter.persistence.repository;
 
 import com.exemplo.projeto.adapter.persistence.entity.VotoEntity;
-import com.exemplo.projeto.adapter.persistence.mapper.PautaMapper;
 import com.exemplo.projeto.adapter.persistence.mapper.VotoMapper;
 import com.exemplo.projeto.domain.model.Voto;
 import com.exemplo.projeto.domain.port.output.VotoRepositoryPort;

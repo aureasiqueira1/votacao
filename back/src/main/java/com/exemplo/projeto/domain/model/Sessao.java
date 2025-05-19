@@ -14,9 +14,10 @@ public class Sessao {
         this.inicio = LocalDateTime.now();
     }
 
-    public Sessao(LocalDateTime inicio, LocalDateTime fim) {
+    public Sessao(LocalDateTime inicio, LocalDateTime fim, Long idPauta) {
         this.inicio = inicio;
         this.fim = fim;
+        this.idPauta = idPauta;
     }
 
     public boolean isAberta() {

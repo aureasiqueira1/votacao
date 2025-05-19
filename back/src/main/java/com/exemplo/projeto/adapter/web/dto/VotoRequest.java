@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class VotoRequest {
+    private Long idPauta;
     private Long associadoId;
-    private String voto;
+    private boolean voto;
 }

@@ -4,25 +4,28 @@ import com.exemplo.projeto.adapter.persistence.entity.PautaEntity;
 import com.exemplo.projeto.adapter.persistence.mapper.PautaMapper;
 import com.exemplo.projeto.adapter.web.dto.PautaRequest;
 import com.exemplo.projeto.adapter.web.dto.PautaResponseDTO;
-import com.exemplo.projeto.adapter.web.dto.VotoRequest;
 import com.exemplo.projeto.domain.model.Pauta;
 import com.exemplo.projeto.domain.port.input.PautaUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/pautas")
 @RequiredArgsConstructor
+@Tag(name = "Pautas", description = "Gerenciamento de pautas")
 public class PautaController {
     private final PautaUseCase pautaUseCase;
     private  final PautaMapper pautaMapper;
 
+    @Operation(summary = "Listar todas as pautas")
+    @ApiResponse(responseCode = "200", description = "Pautas listadas com sucesso")
     @GetMapping
     public ResponseEntity<List<PautaResponseDTO>> listarPautas() {
         List<Pauta> pautas = pautaUseCase.buscar();
@@ -38,8 +41,11 @@ public class PautaController {
         return ResponseEntity.ok(dtoList);
     }
 
+    @Operation(summary = "Buscar uma pauta pelo ID")
+    @ApiResponse(responseCode = "200", description = "Pauta encontrada")
+    @ApiResponse(responseCode = "404", description = "Pauta não encontrada")
     @GetMapping("/{id}")
-    public ResponseEntity<PautaResponseDTO> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<PautaResponseDTO> buscarPautasPorId(@PathVariable Long id) {
         Optional<Pauta> pautaOptional = pautaUseCase.buscarPorId(id);
 
         if (pautaOptional.isEmpty()) {
@@ -50,6 +56,8 @@ public class PautaController {
         return ResponseEntity.ok(dto);
     }
 
+    @Operation(summary = "Criar uma nova pauta")
+    @ApiResponse(responseCode = "200", description = "Pauta criada com sucesso")
     @PostMapping
     public ResponseEntity<PautaResponseDTO> criar(@RequestBody PautaRequest req) {
         PautaEntity pautaEntity = new PautaEntity();
@@ -66,17 +74,5 @@ public class PautaController {
                 pautaCriada.getSessao().getInicio(),
                 pautaCriada.getSessao().getFim()
         ));
-    }
-
-    @PostMapping("/{id}/votar")
-    public ResponseEntity<Void> votar(@PathVariable Long id,
-                                      @RequestBody VotoRequest req) {
-        pautaUseCase.votar(id, req.getAssociadoId(), req.getVoto().equalsIgnoreCase("sim"));
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/{id}/resultado")
-    public ResponseEntity<Map<String, Long>> resultado(@PathVariable Long id) {
-        return ResponseEntity.ok(pautaUseCase.resultado(id));
     }
 }
