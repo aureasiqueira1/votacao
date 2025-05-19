@@ -33,7 +33,7 @@ public interface PautaMapper {
 
     default Sessao toSessao(LocalDateTime inicio, LocalDateTime fim) {
         Sessao sessao = new Sessao();
-        sessao.setInicio(inicio != null ? inicio : LocalDateTime.now());
+        sessao.setInicio(inicio);
         sessao.setFim(fim);
         return sessao;
     }

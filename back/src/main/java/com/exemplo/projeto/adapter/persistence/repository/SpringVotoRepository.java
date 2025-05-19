@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SpringVotoRepository extends JpaRepository<VotoEntity, Long> {
 
-    boolean existsByAssociadoIdAndPautaId(Long associadoId, Long pautaId);
+    boolean existsByAssociadoIdAndIdPauta(Long associadoId, Long idPauta);
 
-    long countByPautaIdAndVoto(Long pautaId, boolean voto);
+    long countByIdPautaAndVoto(Long idPauta, boolean voto);
 }

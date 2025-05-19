@@ -16,19 +16,19 @@ public class VotoRepositoryAdapter implements VotoRepositoryPort {
     private final VotoMapper votoMapper;
 
     @Override
-    public boolean existsByAssociadoIdAndPautaId(Long associadoId, Long pautaId) {
-        return repository.existsByAssociadoIdAndPautaId(associadoId, pautaId);
+    public boolean existsByAssociadoIdAndIdPauta(Long associadoId, Long idPauta) {
+        return repository.existsByAssociadoIdAndIdPauta(associadoId, idPauta);
     }
 
     @Override
-    public void save(Voto voto, Long pautaId) {
+    public void save(Voto voto, Long idPauta) {
         VotoEntity entity = votoMapper.toEntity(voto);
-        entity.setPautaId(pautaId); // garante que o pautaId seja vinculado corretamente
+        entity.setIdPauta(idPauta);
         repository.save(entity);
     }
 
     @Override
-    public long countByPautaIdAndVoto(Long pautaId, boolean voto) {
-        return repository.countByPautaIdAndVoto(pautaId, voto);
+    public long countByIdPautaAndVoto(Long idPauta, boolean voto) {
+        return repository.countByIdPautaAndVoto(idPauta, voto);
     }
 }

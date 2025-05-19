@@ -3,7 +3,7 @@ package com.exemplo.projeto.domain.port.output;
 import com.exemplo.projeto.domain.model.Voto;
 
 public interface VotoRepositoryPort {
-    boolean existsByAssociadoIdAndPautaId(Long associadoId, Long pautaId);
-    void save(Voto voto, Long pautaId);
-    long countByPautaIdAndVoto(Long pautaId, boolean voto);
+    boolean existsByAssociadoIdAndIdPauta(Long associadoId, Long idPauta);
+    void save(Voto voto, Long idPauta);
+    long countByIdPautaAndVoto(Long idPauta, boolean voto);
 }

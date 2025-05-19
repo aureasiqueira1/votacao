@@ -55,7 +55,6 @@ public class PautaController {
         PautaEntity pautaEntity = new PautaEntity();
         pautaEntity.setTitulo(req.getTitulo());
         pautaEntity.setDescricao(req.getDescricao());
-        pautaEntity.setInicioSessao(LocalDateTime.now());
 
         Pauta pauta = pautaMapper.toDomain(pautaEntity);
         Pauta pautaCriada = pautaUseCase.criar(pauta);
@@ -67,12 +66,6 @@ public class PautaController {
                 pautaCriada.getSessao().getInicio(),
                 pautaCriada.getSessao().getFim()
         ));
-    }
-
-    @PostMapping("/{id}/abrir-sessao")
-    public ResponseEntity<Pauta> abrirSessao(@PathVariable Long id,
-                                             @RequestParam(required = false) Integer minutos) {
-        return ResponseEntity.ok(pautaUseCase.abrirSessao(id, minutos));
     }
 
     @PostMapping("/{id}/votar")

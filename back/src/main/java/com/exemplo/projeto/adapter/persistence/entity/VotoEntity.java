@@ -14,7 +14,7 @@ public class VotoEntity {
     private Long id;
 
     private Long associadoId;
-    private Long pautaId;
+    private Long idPauta;
     private boolean voto;
 
 }

@@ -10,7 +10,6 @@ public interface PautaUseCase {
     List<Pauta> buscar();
     Optional<Pauta> buscarPorId(Long id);
     Pauta criar(Pauta pauta);
-    Pauta abrirSessao(Long pautaId, Integer minutos);
-    void votar(Long pautaId, Long associadoId, boolean voto);
-    Map<String, Long> resultado(Long pautaId);
+    void votar(Long idPauta, Long associadoId, boolean voto);
+    Map<String, Long> resultado(Long idPauta);
 }

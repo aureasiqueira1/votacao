@@ -36,37 +36,26 @@ public class PautaService implements PautaUseCase {
     }
 
     @Override
-    public Pauta abrirSessao(Long pautaId, Integer minutos) {
-        Pauta pauta = pautaRepo.findById(pautaId)
-                .orElseThrow(() -> new RuntimeException("Pauta não encontrada"));
-        Sessao sessao = new Sessao();
-        sessao.setInicio(LocalDateTime.now());
-        sessao.setFim(sessao.getInicio().plusMinutes(minutos != null ? minutos : 1));
-        pauta.setSessao(sessao);
-        return pautaRepo.save(pauta);
-    }
-
-    @Override
-    public void votar(Long pautaId, Long associadoId, boolean votoSim) {
-        Pauta pauta = pautaRepo.findById(pautaId)
+    public void votar(Long idPauta, Long associadoId, boolean votoSim) {
+        Pauta pauta = pautaRepo.findById(idPauta)
                 .orElseThrow(() -> new RuntimeException("Pauta não encontrada"));
 
         if (pauta.getSessao() == null || !pauta.getSessao().isAberta())
             throw new RuntimeException("Sessão encerrada");
 
-        if (votoRepo.existsByAssociadoIdAndPautaId(associadoId, pautaId))
+        if (votoRepo.existsByAssociadoIdAndIdPauta(associadoId, idPauta))
             throw new RuntimeException("Associado já votou");
 
         Voto voto = new Voto();
         voto.setAssociadoId(associadoId);
         voto.setVoto(votoSim);
-        votoRepo.save(voto, pautaId);
+        votoRepo.save(voto, idPauta);
     }
 
     @Override
-    public Map<String, Long> resultado(Long pautaId) {
-        long sim = votoRepo.countByPautaIdAndVoto(pautaId, true);
-        long nao = votoRepo.countByPautaIdAndVoto(pautaId, false);
+    public Map<String, Long> resultado(Long idPauta) {
+        long sim = votoRepo.countByIdPautaAndVoto(idPauta, true);
+        long nao = votoRepo.countByIdPautaAndVoto(idPauta, false);
         return Map.of("Sim", sim, "Não", nao);
     }
 }
