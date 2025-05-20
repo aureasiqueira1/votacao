@@ -7,6 +7,7 @@ Este projeto é uma aplicação completa de votação digital para cooperativas,
 ## ⚙️ Tecnologias Utilizadas
 
 ### 🔙 Backend
+
 - **Java 17**
 - **Spring Boot**
 - **Arquitetura Hexagonal (Ports and Adapters)**
@@ -16,10 +17,12 @@ Este projeto é uma aplicação completa de votação digital para cooperativas,
 - **JPA/Hibernate** para persistência
 
 ### 🌐 Frontend
+
 - **React + Vite**
 - **TypeScript**
 - **Material UI (MUI)** para UI responsiva e moderna
 - **Axios** para consumo de API
+
 ---
 
 ## 📐 Arquitetura Hexagonal
@@ -56,9 +59,9 @@ src/
 ## ✅ Funcionalidades
 
 - 📄 **Cadastrar uma nova pauta**
-- 🕒 **Abrir uma sessão de votação** 
-- 🗳️ **Receber votos** dos associados (Sim/Não)  
-  - Cada associado é identificado por um ID único  
+- 🕒 **Abrir uma sessão de votação**
+- 🗳️ **Receber votos** dos associados (Sim/Não)
+  - Cada associado é identificado por um ID único
   - Cada associado pode votar **apenas uma vez por pauta**
 - 📊 **Contabilizar os votos e retornar o resultado** de cada pauta
 
@@ -69,11 +72,13 @@ src/
 ### 🧱 Backend
 
 ### 📌 Requisitos para rodar:
+
 - Java 17
 - Maven 3.8+
 - PostgreSQL 12+
 
 ### 1) Clonar o projeto
+
 ```bash
 git clone https://github.com/aureasiqueira1/votacao.git
 ```
@@ -93,9 +98,10 @@ cd votacao/back
 ---
 
 ### 🌐 Frontend
+
 - Requisitos: Node.js (18+)
 
- ### 1) Depois de clonar o projeto, entrar na pasta:
+### 1) Depois de clonar o projeto, entrar na pasta:
 
 ```bash
 cd votacao/front
@@ -115,5 +121,16 @@ npm run dev
 
 ---
 
-### 📬 Contribuição
-Sinta-se à vontade para abrir issues ou pull requests. Sugestões de melhoria e feedbacks são sempre bem-vindos!
+### Demonstração
+
+<p align="center">
+  <img src="image-2.png" alt="alt text" width="600"/>
+  <br />
+  <img src="image.png" alt="alt text" width="600"/>
+  <br />
+  <img src="image-3.png" alt="alt text" width="600"/>
+  <br />
+  <img src="image-4.png" alt="alt text" width="600"/>
+  <br />
+  <img src="image-6.png" alt="alt text" width="600"/>
+</p>
