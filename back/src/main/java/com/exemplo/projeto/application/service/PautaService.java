@@ -1,9 +1,9 @@
 package com.exemplo.projeto.application.service;
 
 import com.exemplo.projeto.domain.model.Pauta;
-import com.exemplo.projeto.domain.port.input.PautaUseCase;
-import com.exemplo.projeto.domain.port.output.PautaRepositoryPort;
-import com.exemplo.projeto.domain.port.output.VotoRepositoryPort;
+import com.exemplo.projeto.application.port.input.PautaUseCase;
+import com.exemplo.projeto.application.port.output.PautaRepositoryPort;
+import com.exemplo.projeto.application.port.output.VotoRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

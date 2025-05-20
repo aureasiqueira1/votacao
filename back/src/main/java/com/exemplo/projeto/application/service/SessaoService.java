@@ -2,9 +2,9 @@ package com.exemplo.projeto.application.service;
 
 import com.exemplo.projeto.domain.model.Pauta;
 import com.exemplo.projeto.domain.model.Sessao;
-import com.exemplo.projeto.domain.port.input.SessaoUseCase;
-import com.exemplo.projeto.domain.port.output.PautaRepositoryPort;
-import com.exemplo.projeto.domain.port.output.SessaoRepositoryPort;
+import com.exemplo.projeto.application.port.input.SessaoUseCase;
+import com.exemplo.projeto.application.port.output.PautaRepositoryPort;
+import com.exemplo.projeto.application.port.output.SessaoRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

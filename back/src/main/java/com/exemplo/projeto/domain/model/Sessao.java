@@ -19,8 +19,4 @@ public class Sessao {
         this.fim = fim;
         this.idPauta = idPauta;
     }
-
-    public boolean isAberta() {
-        return LocalDateTime.now().isBefore(fim);
-    }
 }

@@ -1,11 +1,11 @@
 package com.exemplo.projeto.application.service;
 
-import com.exemplo.projeto.adapter.web.dto.ResultadoVotacaoDTO;
+import com.exemplo.projeto.adapter.input.dto.ResultadoVotacaoDTO;
 import com.exemplo.projeto.domain.model.Sessao;
 import com.exemplo.projeto.domain.model.Voto;
-import com.exemplo.projeto.domain.port.input.VotoUseCase;
-import com.exemplo.projeto.domain.port.output.SessaoRepositoryPort;
-import com.exemplo.projeto.domain.port.output.VotoRepositoryPort;
+import com.exemplo.projeto.application.port.input.VotoUseCase;
+import com.exemplo.projeto.application.port.output.SessaoRepositoryPort;
+import com.exemplo.projeto.application.port.output.VotoRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
