@@ -1,1 +1,1 @@
-web: java -jar back/target/projeto-0.0.1-SNAPSHOT.jar
+web: mvn -f back/pom.xml spring-boot:run
