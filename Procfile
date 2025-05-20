@@ -1,1 +1,1 @@
-web: cd back && ./mvnw spring-boot:run
+web: java -jar back/target/projeto-0.0.1-SNAPSHOT.jar
