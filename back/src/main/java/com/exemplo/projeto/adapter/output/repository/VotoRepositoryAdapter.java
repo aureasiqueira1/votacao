@@ -7,6 +7,8 @@ import com.exemplo.projeto.application.port.output.VotoRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class VotoRepositoryAdapter implements VotoRepositoryPort {
@@ -29,5 +31,10 @@ public class VotoRepositoryAdapter implements VotoRepositoryPort {
     @Override
     public long countByIdPautaAndVoto(Long idPauta, boolean voto) {
         return repository.countByIdPautaAndVoto(idPauta, voto);
+    }
+
+    @Override
+    public List<Long> findDistinctIdPauta() {
+        return repository.findDistinctIdPauta();
     }
 }

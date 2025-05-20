@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/votos")
 @RequiredArgsConstructor
@@ -30,5 +32,12 @@ public class VotoController {
     @GetMapping("/resultado/{idPauta}")
     public ResponseEntity<ResultadoVotacaoDTO> resultado(@PathVariable Long idPauta) {
         return ResponseEntity.ok(votoUseCase.consultarResultado(idPauta));
+    }
+
+    @Operation(summary = "Consultar resultado da votação de todas as pautas")
+    @ApiResponse(responseCode = "200", description = "Resultado das votações retornado com sucesso")
+    @GetMapping("/resultado")
+    public ResponseEntity<List<ResultadoVotacaoDTO>> listaResultado() {
+        return ResponseEntity.ok(votoUseCase.consultarListaResultado());
     }
 }

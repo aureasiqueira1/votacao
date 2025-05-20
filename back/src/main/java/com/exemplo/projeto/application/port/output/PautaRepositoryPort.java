@@ -9,4 +9,5 @@ public interface PautaRepositoryPort {
     List<Pauta> findAll();
     Pauta save(Pauta pauta);
     Optional<Pauta> findById(Long id);
+    List<Pauta> findAllById(List<Long> id);
 }

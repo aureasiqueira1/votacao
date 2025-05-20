@@ -7,6 +7,7 @@ import com.exemplo.projeto.application.port.output.PautaRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +36,17 @@ public class PautaRepositoryAdapter implements PautaRepositoryPort {
     public Optional<Pauta> findById(Long id) {
         return repository.findById(id)
                 .map(pautaMapper::toDomain);
+    }
+
+    public List<Pauta> findAllById(List<Long> ids) {
+        List<Pauta> resultado = new ArrayList<>();
+        for (Long id : ids) {
+            repository.findById(id).ifPresent(entity -> {
+                Pauta pauta = pautaMapper.toDomain(entity);
+                resultado.add(pauta);
+            });
+        }
+        return resultado;
     }
 
 }
