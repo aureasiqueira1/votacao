@@ -1,1 +1,0 @@
-web: mvn -f back/pom.xml spring-boot:run
