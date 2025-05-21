@@ -2,6 +2,8 @@
 
 Este projeto é uma aplicação completa de votação digital para cooperativas, com funcionalidades para criação de pautas, abertura de sessões de votação com tempo definido ou padrão, registro de votos únicos por associado e exibição do resultado da votação.
 
+### Link para acessar o projeto: https://votacao-tau.vercel.app/
+
 ---
 
 ## ⚙️ Tecnologias Utilizadas
