@@ -113,7 +113,21 @@ cd votacao/front
 npm install
 ```
 
-### 3) Rodar aplicação:
+### 3) Adicionar arquivo .env:
+
+- Para usar api local:
+
+```
+VITE_API_BASE_URL="http://localhost:8080/api"
+```
+
+- Para usar api na nuvem:
+
+```
+VITE_API_BASE_URL="https://spring-boot-backend-bzbf.onrender.com/api"
+```
+
+### 4) Rodar aplicação:
 
 ```bash
 npm run dev
@@ -121,7 +135,7 @@ npm run dev
 
 ---
 
-### Demonstração
+### Demonstração:
 
 <p align="center">
   <img src="image-2.png" alt="alt text" width="600"/>

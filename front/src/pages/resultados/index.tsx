@@ -32,10 +32,6 @@ const Resultados = () => {
         variant="h4"
         sx={{
           fontWeight: 700,
-          fontSize: { xs: '1.8rem', md: '2.2rem' },
-          color: '#333',
-          mb: 4,
-          px: 1,
         }}
       >
         📊 Resultados
