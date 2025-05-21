@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")  // libera para todas as rotas
-                        .allowedOrigins("http://localhost:5173") // origem do frontend
+                        .allowedOrigins("http://localhost:5173", "https://votacao-tau.vercel.app/") // origem do frontend
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
             }
